@@ -1,7 +1,17 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      // デバイスプレビューを使用するかどうかを 'enabled' で設定します。
+      // 現状、[kIsWeb] が true. つまり、Web で実行する場合はデバイスプレビューを使用しています。
+      // もし無効にしたい場合は直接 'false' を設定してください。
+      enabled: kIsWeb,
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
